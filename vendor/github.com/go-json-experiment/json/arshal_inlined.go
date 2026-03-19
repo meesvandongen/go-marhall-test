@@ -51,7 +51,7 @@ func marshalInlinedFallbackAll(enc *jsontext.Encoder, va addressableValue, mo *j
 	}
 
 	if v.Type() == jsontextValueType {
-		b, _ := typeAssertVal[jsontext.Value](v.Value)
+		b, _ := reflect.TypeAssert[jsontext.Value](v.Value)
 		if len(b) == 0 { // TODO: Should this be nil? What if it were all whitespace?
 			return nil
 		}
@@ -174,7 +174,7 @@ func unmarshalInlinedFallbackNext(dec *jsontext.Decoder, va addressableValue, uo
 	v = v.indirect(true)
 
 	if v.Type() == jsontextValueType {
-		b, _ := typeAssertVal[*jsontext.Value](v.Addr())
+		b, _ := reflect.TypeAssert[*jsontext.Value](v.Addr())
 		if len(*b) == 0 { // TODO: Should this be nil? What if it were all whitespace?
 			*b = append(*b, '{')
 		} else {

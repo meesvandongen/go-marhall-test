@@ -1,3 +1,3 @@
 module github.com/go-json-experiment/json
 
-go 1.24
+go 1.26
