@@ -2,11 +2,10 @@ package marshal_test
 
 import (
 	"encoding/json"
+	jsonv2 "encoding/json/v2"
 	"fmt"
 	"strings"
 	"testing"
-
-	jsonv2 "github.com/go-json-experiment/json"
 )
 
 // This file demonstrates Go JSON marshaling behavior across a matrix of:
